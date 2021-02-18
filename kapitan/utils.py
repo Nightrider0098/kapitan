@@ -252,8 +252,8 @@ def deep_get(dictionary, keys, previousKey=None):
                 # If we find nothing, check for globbing, loop and match with dict keys
                 if "*" in keys[0]:
                     key_lower = keys[0].replace("*", "").lower()
-                    for dict_key in dictionary.keys():
-                        if key_lower in dict_key.lower():
+                    for dict_key in dictionary.keys() :
+                        if (key_lower in dict_key.lower()) and dict_key.lower().find(key_lower)==0:
                             # If we're at the last key in the chain, return matched value
                             if len(keys) == 1:
                                 return dictionary[dict_key]
